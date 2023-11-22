@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-record-deployment
+spec:
+  selector:
+    matchLabels:
+      app: health-record-pod
+  template:
+    metadata:
+      labels:
+        app: health-record-pod
+    spec:
+      containers:
+        - name: health-record-container
+          image: therapymicroservices.azurecr.io/therapy_healthrecordandexpertise:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 7008

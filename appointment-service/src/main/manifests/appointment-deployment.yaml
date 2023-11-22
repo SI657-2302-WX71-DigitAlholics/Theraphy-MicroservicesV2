@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointment-deployment
+spec:
+  selector:
+    matchLabels:
+      app: appointment-pod
+  template:
+    metadata:
+      labels:
+        app: appointment-pod
+    spec:
+      containers:
+        - name: appointment-container
+          image: therapymicroservices.azurecr.io/therapy_appointment-service:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 7008

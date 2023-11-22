@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-deployment
+spec:
+  selector:
+    matchLabels:
+      app: config-server-pod
+  template:
+    metadata:
+      labels:
+        app: config-server-pod
+    spec:
+      containers:
+        - name: config-server-container
+          image: therapymicroservices.azurecr.io/therapy_config-server:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 8888

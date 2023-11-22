@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-deployment
+spec:
+  selector:
+    matchLabels:
+      app: patient-pod
+  template:
+    metadata:
+      labels:
+        app: patient-pod
+    spec:
+      containers:
+        - name: patient-container
+          image: therapymicroservices.azurecr.io/therapy_patient-service:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 7009

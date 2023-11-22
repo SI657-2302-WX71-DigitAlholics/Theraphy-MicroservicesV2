@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server-deployment
+spec:
+  selector:
+    matchLabels:
+      app: eureka-server-pod
+  template:
+    metadata:
+      labels:
+        app: eureka-server-pod
+    spec:
+      containers:
+        - name: eureka-server-container
+          image: therapymicroservices.azurecr.io/therapy_eureka-server:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 8761

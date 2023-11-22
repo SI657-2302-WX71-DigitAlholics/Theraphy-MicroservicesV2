@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: social-deployment
+spec:
+  selector:
+    matchLabels:
+      app: social-pod
+  template:
+    metadata:
+      labels:
+        app: social-pod
+    spec:
+      containers:
+        - name: social-container
+          image: therapymicroservices.azurecr.io/therapy_social-service:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 7012

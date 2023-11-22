@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: health-record-service
+spec:
+  selector:
+    app: 'health-record-pod'
+  ports:
+    - port: 7008
+  type: ClusterIP
