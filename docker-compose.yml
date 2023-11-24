@@ -15,6 +15,7 @@ services:
 #      - EUREKA_CLIENT_FETCH_REGISTRY=false
     depends_on:
       - config-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -33,6 +34,7 @@ services:
     depends_on:
       - config-server
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -54,6 +56,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -68,6 +71,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -82,6 +86,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -96,6 +101,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -110,6 +116,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -124,6 +131,7 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
 
@@ -138,5 +146,6 @@ services:
       - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
+    restart: on-failure
     networks:
       - therapy-net
